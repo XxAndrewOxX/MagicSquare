@@ -1,6 +1,9 @@
 # MagicSquare
 import java.util.*;
 
+
+import java.util.*;
+
 public class MagicSquare {
 public static final int SIZE = 3;
 	public static void main(String[] args) {
@@ -10,19 +13,23 @@ public static final int SIZE = 3;
 		for(int i =0; i<3; i++)
 			for(int j =0; j<3; j++){
 		System.out.print("what is the row "+i+" column "+j+" value for the table? ");
-			magicSquare[i][j]= console.nextInt();
-			
-				for(int k =0; k<3; k++)
-					for(int u =0; u<3; u++){
-						if(i!=0 || j!=0)
-						if(magicSquare[i][j]==magicSquare[k][u]){
-							System.out.println("you repeated a number, enter a new one?");
-							magicSquare[i][j]=console.nextInt();
+		magicSquare[i][j]= console.nextInt();
+				if(i!=0||j!=0){
+					for(int row = 0; row<i+1;row++)
+						for(int col =0; col<j+1;col++){
+							if(magicSquare[i][j]==magicSquare[row][col]){
+						System.out.print("repeat");
+						magicSquare[i][j]= console.nextInt();
+						row++;						
+					
+							}
+						}
+					
+					
+				}
 						}
 						
-					}
-			
-		}
+					
 		System.out.println(magicSquare[0][0]+" "+magicSquare[0][1] +" "+magicSquare[0][2]);
 		System.out.println(magicSquare[1][0]+" "+magicSquare[1][1]+" "+magicSquare[1][2]);
 		System.out.println(magicSquare[2][0]+" "+magicSquare[2][1]+" "+magicSquare[2][2]);
