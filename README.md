@@ -14,21 +14,28 @@ public static final int SIZE = 3;
 			for(int j =0; j<3; j++){
 		System.out.print("what is the row "+i+" column "+j+" value for the table? ");
 		magicSquare[i][j]= console.nextInt();
-				if(i!=0||j!=0){
-					for(int row = 0; row<i+1;row++)
-						for(int col =0; col<j+1;col++){
-							if(magicSquare[i][j]==magicSquare[row][col]){
-						System.out.print("repeat");
-						magicSquare[i][j]= console.nextInt();
-						row++;						
-					
-							}
-						}
-					
-					
-				}
-						}
-						
+		
+		
+		int[] arr = new int[magicSquare.length * magicSquare.length];
+		  for(int k = 0; k < magicSquare.length; k ++)
+		  {
+		    for(int s = 0; s < magicSquare.length; s ++)
+		    {
+		      arr[(k * magicSquare.length) + s] = magicSquare[k][s];
+		    }
+		  }
+		  
+		  for(int w =0; w <(i*3+j); w++)
+			  if(arr[w]==magicSquare[i][j]){
+				  System.out.println("repeat");
+				  magicSquare[i][j]= console.nextInt();
+			  }
+		  
+		  
+		  }
+	
+			
+				
 					
 		System.out.println(magicSquare[0][0]+" "+magicSquare[0][1] +" "+magicSquare[0][2]);
 		System.out.println(magicSquare[1][0]+" "+magicSquare[1][1]+" "+magicSquare[1][2]);
@@ -53,5 +60,4 @@ public static final int SIZE = 3;
 		
 	}
 	
-
 }
